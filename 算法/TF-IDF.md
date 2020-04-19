@@ -3,13 +3,13 @@ TF-IDF(term frequency–inverse document frequency)是一种**用于信息检索
 TF-IDF有两层意思
 - 一层是"词频"（Term Frequency，缩写为TF）
 假设“苹果”这个词汇，在A文章中出现3次，A文章包含300个词，TF(苹果)=3
-```math
-TF = \frac{3}{300}
-```
+<html>
+<img src="http://latex.codecogs.com/gif.latex?TF = \frac{3}{300}" />
+</html>
 - 另一层是"逆文档频率"（Inverse Document Frequency，缩写为IDF）。反文档频率，假设有1000篇文章，包含“苹果”有200篇
-```math
-IDF(苹果)=\log{\frac{1000}{200+1}}
-```
+<html>
+<img src="http://latex.codecogs.com/gif.latex?IDF(苹果)=\log{\frac{1000}{200+1}}" />
+</html>
 
 TF-IDF的结果是一个分数或打分
 
@@ -23,20 +23,19 @@ TF-IDF的结果是一个分数或打分
 # TF-IDF算法步骤
 第一步，计算词频：
 考虑到文章有长短之分，为了便于不同文章的比较，进行"词频"标准化。
-```math
-词频(TF) = \frac{某个词在当前文档中出现的次数}{当前文档得总次数}
-```
+<html>
+<img src="http://latex.codecogs.com/gif.latex?词频(TF) = \frac{某个词在当前文档中出现的次数}{当前文档得总次数}" />
+</html>
 第二步，计算逆文档频率：
 这时，需要一个语料库（corpus），用来模拟语言的使用环境。
-```math
-IDF=\log{\frac{语料库文档总数}{包含该词文档数+1}}
-```
+<html>
+<img src="http://latex.codecogs.com/gif.latex?IDF=\log{\frac{语料库文档总数}{包含该词文档数+1}}" />
+</html>
 如果一个词越常见，那么分母就越大，逆文档频率就越小越接近0。分母之所以要加1，是为了避免分母为0（即所有文档都不包含该词）。log表示对得到的值取对数。
 第三步，计算TF-IDF：
-
-```math
-TF-IDF = 词频(TF) * 逆文档频率(IDF)
-```
+<html>
+<img src="http://latex.codecogs.com/gif.latex?TF-IDF = 词频(TF) * 逆文档频率(IDF)" />
+</html>
 可以看到，TF-IDF与一个词在文档中的出现次数成正比，与该词在整个语言中的出现次数成反比。所以，自动提取关键词的算法就很清楚了，就是计算出文档的每个词的TF-IDF值，然后按降序排列，取排在最前面的几个词。
 
 ## 优缺点
